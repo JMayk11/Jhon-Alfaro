@@ -1,0 +1,86 @@
+import os
+
+os.system("cls")
+
+Tipo = []
+Patente = []
+Marca = []
+Precio = []
+Monto = []
+Multa = []
+Fecha_registro = []
+Nombre_dueno = []
+
+def grabar_vehiculo():
+    print(" Grabar Vehículo ")
+    
+
+    tipo = input("Tipo de vehículo: ")
+    patente = input("Patente: ")
+    marca = input("Marca (entre 2 y 15 caracteres): ")
+    
+
+    while not (2 <= len(marca) <= 15):
+        print("La marca debe tener entre 2 y 15 caracteres.")
+        marca = input("Marca (entre 2 y 15 caracteres): ")
+    
+
+    while not patente.isalnum():
+        print("La patente debe contener solo caracteres alfanuméricos.")
+        patente = input("Patente: ")
+    
+    precio = float(input("Precio (mayor a $5.000.000): "))
+    
+
+    while precio <= 5000000:
+        print("El precio debe ser mayor a $5.000.000.")
+        precio = float(input("Precio (mayor a $5.000.000): "))
+    
+
+    monto_multa = float(input("Monto de multa: "))
+    fecha_multa = input("Fecha de multa (YYYY-MM-DD): ")
+    fecha_registro = input("Fecha de registro del vehículo (YYYY-MM-DD): ")
+    nombre_dueno = input("Nombre del dueño: ")
+
+
+    Tipo.append(tipo)
+    Patente.append(patente)
+    Marca.append(marca)
+    Precio.append(precio)
+    Monto.append(monto_multa)
+    Multa.append(fecha_multa)
+    Fecha_registro.append(fecha_registro)
+    Nombre_dueno.append(nombre_dueno)
+
+def buscar_vehiculo():
+
+    pass
+
+def imprimir_certificados():
+
+    pass
+
+def salir():
+    print("Gracias por usar el programa. ¡Hasta luego!")
+
+def menu():
+    while True:
+        print("\n--- Menú ---")
+        print("1. Grabar")
+        print("2. Buscar")
+        print("3. Imprimir certificados")
+        print("4. Salir")
+
+        opcion = input("Seleccione una opción (1-4): ")
+
+        if opcion == '1':
+            grabar_vehiculo()
+        elif opcion == '2':
+            buscar_vehiculo()
+        elif opcion == '3':
+            imprimir_certificados()
+        elif opcion == '4':
+            salir()
+
+if __name__ == "__main__":
+    menu()
